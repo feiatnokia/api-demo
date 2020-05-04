@@ -1,6 +1,7 @@
 package com.yuqilin.apidemo.service;
 
 import com.alibaba.fastjson.JSON;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
+@Slf4j
 public class DemoServiceTest extends AbstractTestNGSpringContextTests {
 
     @Autowired
@@ -28,7 +30,7 @@ public class DemoServiceTest extends AbstractTestNGSpringContextTests {
         userList.add("aa");
         userList.add("bb");
         User user = User.builder().age("18").id("1").name("yuqilin").userList(userList).build();
-        System.out.println(user);
-        System.out.println(JSON.toJSONString(user));
+        log.info(user.toString());
+        log.info(JSON.toJSONString(user));
     }
 }
